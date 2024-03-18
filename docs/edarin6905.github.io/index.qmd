@@ -1,0 +1,17 @@
+---
+title: "edarin6905.github.io"
+---
+
+Welcome to my BGGN213 portfolio!
+
+Here are my lab reports:
+
+Lab report 5 <http://localhost:3369/class05.html>
+
+Lab Report 6 <http://localhost:5789/Class06_Darin.html>
+
+Lab Report 7 <http://localhost:3824/Class07.html>
+
+Class 10 mini project <http://localhost:3257/Class10MP.html>
+
+Covid 19 <http://localhost:7511/Covid19.html>
