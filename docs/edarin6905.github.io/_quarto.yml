@@ -1,9 +1,15 @@
 project:
   type: website
+<<<<<<< HEAD
    output-dir: docs
 
 website:
   title: "BGGN213Profile"
+=======
+
+website:
+  title: "edarin6905.github.io"
+>>>>>>> d3dc399a846c18ac0776252b81ad48376d18a26b
   navbar:
     left:
       - href: index.qmd
