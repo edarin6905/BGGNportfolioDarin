@@ -1,0 +1,69 @@
+---
+title: "Class06"
+author: "Emily Darin"
+format: pdf
+---
+
+written function for grading student homework 
+
+```{r}
+#' Title
+#'
+#' @param X 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+  grade <- function(X){
+    
+    X[is.na(X)]<- 0 #makes NA = to 0 
+    mean(X[-which.min(X)]) # calculated the mean after dropping the lowest score for each student 
+    
+  }
+
+```
+
+
+```{r}
+gradebook<- read.csv("http://tinyurl.com/gradeinput", row.names=1)
+gradebook
+```
+
+Using my function, I converted NA to 0, dropped the lowest score for each student and then averaged grades across students and dropped NA grades. 
+
+```{r}
+apply(gradebook,1,grade)
+```
+
+>Q2. Using your grade() function and the supplied gradebook, Who is the top scoring student overall in the gradebook? [3pts]
+
+I used my function to calculate the results and then I asked R which student did the best by doing "which.max", this is student 18. 
+
+```{r}
+results <- apply(gradebook,1,grade)
+which.max(results)
+```
+
+>Q3. From your analysis of the gradebook, which homework was toughest on students (i.e. obtained the lowest scores overall? [2pts]
+
+The answer is Homework 2, to get this answer I took the median of each homework column and then asked R which median was the lowest. This gives me a better distribution of how students did than if I used the average. (mean is effected by outliers)
+
+```{r}
+homeworkmedian<-apply(gradebook,2,median,na.rm=TRUE)
+which.min(homeworkmedian)
+```
+
+>Q4. Optional Extension: From your analysis of the gradebook, which homework was most predictive of overall score (i.e. highest correlation with average grade score)? [1pt]
+
+Homework 5 is the most correlated to student average score. 
+
+```{r}
+gradebook[is.na(gradebook) ] <-0
+cor(results, gradebook$hw1)
+
+apply(gradebook,2,cor, x=results) 
+    
+      
+```
+

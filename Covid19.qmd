@@ -1,0 +1,60 @@
+---
+title: "Covid19"
+format: pdf
+---
+
+```{r}
+library(ggplot2)
+
+vax <- read.csv("d4ff0cd9-d6d7-47a7-a5cb-28572c552298.csv")
+head(vax)
+
+```
+>Q1. What column details the total number of people fully vaccinated? 
+
+persons fully vaccinated
+
+>Q2. What column details the Zip code tabulation area? 
+
+Zip code tabulation data 
+
+>Q3. What is the earliest date in this dataset? 
+
+01-2022
+
+
+>Q4. What is the latest date in this dataset? 
+
+01-2021
+
+```{r}
+skimr::skim(vax)
+```
+
+>Q5. How many numeric columns are in this dataset?
+9
+
+>Q6. Note that there are “missing values” in the dataset. How many NA values there in the persons_fully_vaccinated column? 
+4
+
+Q7. What percent of persons_fully_vaccinated values are missing (to 2 significant figures)? 
+
+
+```{r}
+library(lubridate)
+today()
+vax$as_of_date <- ymd(vax$as_of_date)
+today() - vax$as_of_date[1]
+vax$as_of_date[nrow(vax)] - vax$as_of_date[1]
+
+
+```
+
+
+>Q9. How many days have passed since the last update of the dataset? 
+
+546 days
+
+>Q10. How many unique dates are in the dataset (i.e. how many different dates are detailed)? 
+
+1160
